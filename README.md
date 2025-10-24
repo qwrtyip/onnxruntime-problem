@@ -6,7 +6,7 @@
 
 ## JavaScript
 
-```ts
+```shell
 deno -A main.ts # Creates js_output.bin
 ```
 
