@@ -7,7 +7,7 @@
 ## JavaScript
 
 ```ts
-deno -A main.ts
+deno -A main.ts # Creates js_output.bin
 ```
 
 ## C++
@@ -19,5 +19,5 @@ deno -A main.ts
 ```shell
 ./configure.sh
 ./build.sh
-./build/problem
+./build/problem # Creates cc_output.bin
 ```
