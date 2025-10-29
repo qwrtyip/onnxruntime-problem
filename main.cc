@@ -20,6 +20,8 @@ int main() {
   Ort::SessionOptions so;
   so.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_DISABLE_ALL);
   so.SetExecutionMode(ORT_SEQUENTIAL);
+  so.DisableCpuMemArena();
+  so.DisableMemPattern();
   so.SetInterOpNumThreads(1);
   so.SetIntraOpNumThreads(1);
 

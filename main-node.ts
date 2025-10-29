@@ -8,6 +8,8 @@ const session = await ort.InferenceSession.create(
     intraOpNumThreads: 1,
     executionProviders: ["cpu"],
     graphOptimizationLevel: "disabled",
+    enableCpuMemArena: false,
+    enableMemPattern: false,
   },
 );
 
