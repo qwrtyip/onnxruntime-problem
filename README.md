@@ -4,20 +4,18 @@
 
 ## How to Run
 
-## JavaScript
-
-```shell
-deno -A main.ts # Creates js_output.bin
+1. Clone repo
+2. Get runtime inside cloned dir
 ```
+# macos arm64
+wget https://github.com/microsoft/onnxruntime/releases/download/v1.20.1/onnxruntime-osx-arm64-1.20.1.tgz
+tar -xzf onnxruntime-osx-arm64-1.20.1.tgz
+mv onnxruntime-osx-arm64-1.20.1 onnxruntime
 
-## C++
-
-1. Build ONNX Runtime following the instructions at https://github.com/olilarkin/ort-builder.
-2. Copy its build output to the root directory of this project under a new directory called `onnxruntime`.
-3. Run this:
-
-```shell
-./configure.sh
-./build.sh
-./build/problem # Creates cc_output.bin
+# linux x64
+wget https://github.com/microsoft/onnxruntime/releases/download/v1.20.1/onnxruntime-linux-x64-1.20.1.tgz
+tar -xzf onnxruntime-linux-x64-1.20.1.tgz
+mv onnxruntime-linux-x64-1.20.1 onnxruntime
 ```
+3. Have podman or docker setup
+4. Run run-test-docker.sh or run-test-podman.sh
