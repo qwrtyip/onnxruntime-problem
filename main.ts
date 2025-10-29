@@ -11,6 +11,7 @@ const session = await InferenceSession.create(
     interOpNumThreads: 1,
     intraOpNumThreads: 1,
     executionProviders: ["cpu"],
+    graphOptimizationLevel: "disabled",
   },
 );
 

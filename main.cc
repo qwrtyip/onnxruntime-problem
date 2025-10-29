@@ -18,6 +18,7 @@ int main() {
   auto env = Ort::Env{ORT_LOGGING_LEVEL_ERROR, "Default"};
 
   Ort::SessionOptions so;
+  so.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_DISABLE_ALL);
   so.SetExecutionMode(ORT_SEQUENTIAL);
   so.SetInterOpNumThreads(1);
   so.SetIntraOpNumThreads(1);
