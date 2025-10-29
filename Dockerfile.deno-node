@@ -1,0 +1,8 @@
+FROM denoland/deno:2.0.2
+
+WORKDIR /app
+
+COPY model.bin input.bin main-node.ts ./
+RUN deno cache main-node.ts
+
+CMD ["deno", "run", "--allow-all", "--unstable", "main-node.ts"]

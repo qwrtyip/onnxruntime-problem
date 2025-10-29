@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  deno-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.deno
+    volumes:
+      - ./outputs:/app/outputs:Z
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+
+  deno-node-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.deno-node
+    volumes:
+      - ./outputs:/app/outputs:Z
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    
+  cpp-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.cpp
+    volumes:
+      - ./outputs:/app/outputs:Z
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp

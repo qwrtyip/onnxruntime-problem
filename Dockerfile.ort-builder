@@ -1,0 +1,22 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    git \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+
+# clone onnxruntime
+RUN git clone --recursive --branch v1.20.1 https://github.com/microsoft/onnxruntime.git
+
+WORKDIR /build/onnxruntime
+
+# build for cpu only
+RUN ./build.sh --config Release --build_shared_lib --parallel
+
+# output will be in /build/onnxruntime/build/Linux/Release
+CMD ["bash"]

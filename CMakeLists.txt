@@ -17,9 +17,14 @@ add_executable(
 
 find_package(ZLIB REQUIRED)
 
-target_link_libraries(
-  ${PROJECT_NAME}
-  "-framework CoreFoundation"
-  "-framework Foundation"
-  ${ONNXRUNTIME_ROOT}/lib/libonnxruntime.a
-)
+if(APPLE)
+  target_link_libraries(
+    ${PROJECT_NAME}
+    "-framework CoreFoundation"
+    "-framework Foundation"
+    ${ONNXRUNTIME_ROOT}/lib/libonnxruntime.a
+  )
+else()
+  find_library(ONNXRUNTIME_LIB onnxruntime PATHS ${ONNXRUNTIME_ROOT}/lib)
+  target_link_libraries(${PROJECT_NAME} ${ONNXRUNTIME_LIB})
+endif()

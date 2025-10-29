@@ -64,5 +64,5 @@ int main() {
       input_tensors.size(), output_names.data(), output_names.size());
   auto *output = output_tensors[0].GetTensorMutableData<float>();
 
-  std::ofstream("cc_output.bin", std::ios::binary).write(reinterpret_cast<const char*>(output), 160 * 4);
+  std::ofstream("outputs/cc_output.bin", std::ios::binary).write(reinterpret_cast<const char*>(output), 160 * 4);
 }
